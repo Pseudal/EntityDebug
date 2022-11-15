@@ -30,7 +30,7 @@ let debugEntity = undefined;
 let debugSprite = undefined;
 
 function debugComing(ent, sprite) {
-  if (ent.Type == 406 && ent.Variant == 0 && ent.SubType == 0) {
+  if (ent.Type == DebugConfig.debug && ent.Variant == DebugConfig.debugVariant && ent.SubType == DebugConfig.SubType) {
     if (ent) {
       debugEntity = ent;
     }
@@ -84,6 +84,17 @@ function debug() {
     //   `angle calcul : ${(
     //     debugEntity.Position - Isaac.GetPlayer().Position
     //   ).GetAngleDegrees()}`,
+    //   50,
+    //   60,
+    //   255,
+    //   255,
+    //   255,
+    //   255,
+    // );
+    // Isaac.RenderText(
+    //   `CalcTargetPosition : ${
+    //     debugEntity.Target.Position
+    //   }`,
     //   50,
     //   60,
     //   255,
