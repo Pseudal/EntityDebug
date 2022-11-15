@@ -4,6 +4,9 @@ const MOD_NAME = "entitydebug";
 
 let DebugConfig = {
   debug: 0 ,
+  operator: 1,
+  debugVariant:0,
+  SubType:0,
 }
 
 main();
@@ -266,9 +269,176 @@ function main() {
 
   ModConfigMenu.RemoveCategory("EntityDebug");
 
-  ModConfigMenu.AddSpace("EntityDebug", "Main");
-  ModConfigMenu.AddText("EntityDebug","Main",() => "EntityDebug",);
-  ModConfigMenu.AddSpace("EntityDebug", "Main");
+  ModConfigMenu.AddSetting("EntityDebug", "Id", {
+    CurrentSetting: (): number => DebugConfig.debug,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `Id entity: ${DebugConfig.debug}`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "Id", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+10`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.debug+=10;
+      else if(currentValue == 0)
+        DebugConfig.debug-=10;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "Id", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+100`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.debug+=100;
+      else if(currentValue == 0)
+        DebugConfig.debug-=100;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "Id", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+1000`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.debug+=1000;
+      else if(currentValue == 0)
+        DebugConfig.debug-=1000;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+
+  ModConfigMenu.AddSetting("EntityDebug", "Variant", {
+    CurrentSetting: (): number => DebugConfig.debugVariant,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `Entity variant: ${DebugConfig.debugVariant}`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      DebugConfig.debugVariant = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "Variant", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+10`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.debugVariant+=10;
+      else if(currentValue == 0)
+        DebugConfig.debugVariant-=10;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "Variant", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+100`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.debugVariant+=100;
+      else if(currentValue == 0)
+        DebugConfig.debugVariant-=100;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "Variant", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+1000`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.debugVariant+=1000;
+      else if(currentValue == 0)
+        DebugConfig.debugVariant-=1000;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+
+  ModConfigMenu.AddSetting("EntityDebug", "SubType", {
+    CurrentSetting: (): number => DebugConfig.SubType,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `Entity Subtype: ${DebugConfig.SubType}`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      DebugConfig.SubType = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "SubType", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+10`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.SubType+=10;
+      else if(currentValue == 0)
+        DebugConfig.SubType-=10;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "SubType", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+100`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.SubType+=100;
+      else if(currentValue == 0)
+        DebugConfig.SubType-=100;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
+  ModConfigMenu.AddSetting("EntityDebug", "SubType", {
+    CurrentSetting: (): number => DebugConfig.operator,
+    Maximum: 9999,
+    Minimum: 0,
+    Display: (): string => `+1000`,
+    Info: [],
+    OnChange: (currentValue: number | boolean | undefined): void => {
+      if(currentValue == 2)
+        DebugConfig.SubType+=1000;
+      else if(currentValue == 0)
+        DebugConfig.SubType-=1000;
+      // DebugConfig.debug = currentValue as number;
+    },
+    Type: ModConfigMenuOptionType.NUMBER,
+  });
 
 
 }
