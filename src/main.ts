@@ -17,7 +17,7 @@ function postUpdate() {
     //  DebugText = "no entity"
   } else {
     entities.forEach((ent) => {
-      if (ent.IsActiveEnemy(true) || (ent.Type == 4 && ent.Variant == 15)) {
+      if (ent.IsActiveEnemy(true)) {
         //printConsole(`${ent}`)
         let EntSprite = ent.GetSprite();
         debugComing(ent, EntSprite);
@@ -30,7 +30,10 @@ let debugEntity = undefined;
 let debugSprite = undefined;
 
 function debugComing(ent, sprite) {
-  if (ent.Type == DebugConfig.debug && ent.Variant == DebugConfig.debugVariant && ent.SubType == DebugConfig.SubType) {
+  // if (ent.Type == DebugConfig.debug && ent.Variant == DebugConfig.debugVariant && ent.SubType == DebugConfig.SubType) {
+if (ent.Type == 81 &&
+    //ent.Variant == 2 &&
+    ent.ToNPC().State === 10) {
     if (ent) {
       debugEntity = ent;
     }
@@ -80,28 +83,15 @@ function debug() {
       255,
       255,
     );
-    // Isaac.RenderText(
-    //   `angle calcul : ${(
-    //     debugEntity.Position - Isaac.GetPlayer().Position
-    //   ).GetAngleDegrees()}`,
-    //   50,
-    //   60,
-    //   255,
-    //   255,
-    //   255,
-    //   255,
-    // );
-    // Isaac.RenderText(
-    //   `CalcTargetPosition : ${
-    //     debugEntity.Target.Position
-    //   }`,
-    //   50,
-    //   60,
-    //   255,
-    //   255,
-    //   255,
-    //   255,
-    // );
+    Isaac.RenderText(
+      `V1 : ${debugEntity.ToNPC().V1}  V2 : ${debugEntity.ToNPC().V2}`,
+      50,
+      60,
+      255,
+      255,
+      255,
+      255,
+    );
   } else {
     Isaac.RenderText(`No entity `, 50, 20, 255, 255, 255, 255);
   }
@@ -118,7 +108,7 @@ function debug() {
       255,
     );
     Isaac.RenderText(
-      `FlipX : ${debugSprite.FlipX}, FlipY : ${debugSprite.FlipY}`,
+      `I1 : ${debugEntity.ToNPC().I1}  I2 : ${debugEntity.ToNPC().I2}`,
       50,
       80,
       255,
